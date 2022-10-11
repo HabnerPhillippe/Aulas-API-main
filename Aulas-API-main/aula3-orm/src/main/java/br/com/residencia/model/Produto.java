@@ -22,6 +22,12 @@ import javax.validation.constraints.Size;
 @Table(name = "produto", schema = "public")
 public class Produto {
 
+    // The above code is creating a class called Produto. It is also creating a constructor for the
+    // class. It is also creating a method called getId. It is also creating a method called
+    // getDescricao. It is also creating a method called getValor. It is also creating a method called
+    // getDataCadastro. It is also creating a method called setId. It is also creating a method called
+    // setDescricao. It is also creating a method called setValor. It is also creating a method called
+    // setDataCadastro. It is also creating
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_produto")

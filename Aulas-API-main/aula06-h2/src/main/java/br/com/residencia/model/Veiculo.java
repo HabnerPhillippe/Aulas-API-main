@@ -1,13 +1,20 @@
 package br.com.residencia.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Veiculo {
@@ -34,6 +41,26 @@ public class Veiculo {
 
     @Embedded
     private Caracteristica caracteristica;
+
+    @OneToOne
+    @JoinColumn(name = "id_proprietario")
+    private Proprietario proprietario;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "veiculo")
+    private List<Manutencao> manutencoes;
+
+    public List<Manutencao> getManutencoes() {
+        return manutencoes;
+    }
+
+    public Proprietario getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(Proprietario proprietario) {
+        this.proprietario = proprietario;
+    }
 
     public Long getId() {
         return id;

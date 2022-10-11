@@ -12,7 +12,6 @@ public class Pessoa {
     //gerar um id automaticamente 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
     private String email;
 
